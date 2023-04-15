@@ -1,4 +1,5 @@
-a = 5.565664
-b = 6.7655446
+list_1 = []
+for i in range(1, 6):
+    list_1.append(i)
 
-print(round(a*b, 3))
+print(list_1)
