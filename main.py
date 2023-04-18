@@ -1,5 +1,13 @@
-list_1 = []
-for i in range(1, 6):
-    list_1.append(i)
 
-print(list_1)
+
+n = input('Введите число N: ')
+list = []
+count = 0
+
+for i in range(n):
+    list.append(input())
+x = input('Введите число X: ')
+
+for i in list:
+    if x == list[i]:
+        count += 1
