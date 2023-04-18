@@ -15,7 +15,7 @@ for i in range(n):
 x = int(input('Введите число X: '))
 
 d = abs(array[0] - x)
-res = None
+res = array[0]
 
 for i in range(1,len(array)):
     if abs(array[i] - x) < d:
