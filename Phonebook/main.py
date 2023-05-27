@@ -7,8 +7,6 @@
 # from func import *
 
 
-# privet()
-
 # 1 - Интерфейс
 # 2 - работа с файлом
 # 3 - алгоритм
@@ -21,21 +19,49 @@
 
 from func import *
 from interface import *
+from os.path import exists
 
 path = 'phone_book.txt'
-enter = 0
+if not exists(path):
+    with open(path, 'w'):
+        pass
+enter = None
 
-while enter != '4':
+while enter != '6':
     enter = interface()
     if enter == '1':
-        name = input("Введите ФИО:")
-        phone = input("Введите номер телефона:")
-        stroka = name + '-' + phone
-        add_contact(path, stroka)
+        name = input("Введите ФИО: ")
+        phone = input("Введите номер телефона: ")
+        res = add_contact(path, name, phone)
+        if res:
+            print('Контакт создан!')
+        else:
+            print('Человек с таким именем уже есть в справочнике.')
     elif enter == '2':
-        show_all(path)
+        contacts = get_all_contacts(path)
+        for contact in contacts:
+            print(contact)
     elif enter == '3':
-        stroka = input("Введите фамилию: ")
-        search(path, stroka)
+        name = input("Введите фамилию: ")
+        i, phone = get_contact(path, name)
+        if phone:
+            print(f'Пользователь {name} записан в справочнике с номером {phone}, строка {i+1}')
+        else: 
+            print('Пользователь не найден.')
+    elif enter == '4':
+        name = input('Введите имя: ')
+        res = del_contact(path, name)
+        if res:
+            print('Контакт удален!')
+        else:
+            print('Такого человека нет в справочнике.')
+    elif enter == '5':
+        name = input('Введите имя: ')
+        new_phone = input('Введите новый номер телефона: ')
+        res = edit_contact(path, name, new_phone)
+        if res:
+            print('Контакт изменен!')
+        else:
+            print('Такого человека нет в справочнике.')
 print("Спасибо!!")
 
