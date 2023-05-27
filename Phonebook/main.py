@@ -35,6 +35,7 @@ while enter != '4':
     elif enter == '2':
         show_all(path)
     elif enter == '3':
-        search(path, input("Введите фамилию"))
+        stroka = input("Введите фамилию: ")
+        search(path, stroka)
 print("Спасибо!!")
 

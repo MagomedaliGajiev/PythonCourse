@@ -22,7 +22,7 @@ def search(file_name, data):
     have_search = False
     fille1 = open(file_name, 'r')
     for line in fille1:
-        if data in fille1:
+        if data.upper() in line.upper():
             print(line)
             have_search = True
             break
