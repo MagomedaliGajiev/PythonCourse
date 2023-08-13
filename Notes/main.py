@@ -35,7 +35,7 @@ class Interface:
 
 if __name__ == '__main__':
     cmd = -1
-    interface = Interface('test_dir')
+    interface = Interface('Notes\\test_dir')
     while cmd != 3: 
         interface.commands_list()
         cmd = int(input())

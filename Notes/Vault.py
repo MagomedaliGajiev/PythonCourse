@@ -8,6 +8,9 @@ class Vault:
         self.notes = list(os.listdir(dir_path))
 
     def get_note_path(self, i: int):
+        size = len(self.notes)
+        if size == i:
+            return os.path.join(self.dir_path, self.notes[i-1])
         return os.path.join(self.dir_path, self.notes[i])
 
     def create_note(self, name: str, content: list[str]):
